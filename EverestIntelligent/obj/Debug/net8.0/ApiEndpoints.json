@@ -1,1 +1,102 @@
-[]
+[
+  {
+    "ContainingType": "EverestIntelligent.Controllers.EmpleadosApiController",
+    "Method": "CrearEmpleado",
+    "RelativePath": "api/EmpleadosApi/CrearEmpleado",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "empleado",
+        "Type": "EverestIntelligent.Models.Empleado",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EverestIntelligent.Controllers.EmpleadosApiController",
+    "Method": "BorrarEmpleado",
+    "RelativePath": "api/EmpleadosApi/EliminarPorID",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EverestIntelligent.Controllers.EmpleadosApiController",
+    "Method": "FiltrarPorFecha",
+    "RelativePath": "api/EmpleadosApi/FiltrarPorFecha",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fechaInicial",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "fechaFinal",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EverestIntelligent.Controllers.EmpleadosApiController",
+    "Method": "EditarEmpleado",
+    "RelativePath": "api/EmpleadosApi/ModificarPorID",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "empleado",
+        "Type": "EverestIntelligent.Models.Empleado",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EverestIntelligent.Controllers.EmpleadosApiController",
+    "Method": "GetEmpleados",
+    "RelativePath": "api/EmpleadosApi/ObtemerEmpleados",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EverestIntelligent.Controllers.EmpleadosApiController",
+    "Method": "GetEmpleado",
+    "RelativePath": "api/EmpleadosApi/ObtenerPorID",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

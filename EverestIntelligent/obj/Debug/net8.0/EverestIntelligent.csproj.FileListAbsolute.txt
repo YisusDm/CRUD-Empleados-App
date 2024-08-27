@@ -251,3 +251,8 @@ C:\Users\Jesus Marquez\Desktop\Everest Intelligent\Everest-Intelligent-Test-(.Ne
 C:\Users\Jesus Marquez\Desktop\Everest Intelligent\Everest-Intelligent-Test-(.Net Core)\EverestIntelligent\EverestIntelligent\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Jesus Marquez\Desktop\Everest Intelligent\Everest-Intelligent-Test-(.Net Core)\EverestIntelligent\EverestIntelligent\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 C:\Users\Jesus Marquez\Desktop\Everest Intelligent\Everest-Intelligent-Test-(.Net Core)\EverestIntelligent\EverestIntelligent\obj\Debug\net8.0\EverestIntelligent.sourcelink.json
+C:\Users\Jesus Marquez\Desktop\Everest Intelligent\Everest-Intelligent-Test-(.Net Core)\EverestIntelligent\EverestIntelligent\obj\Debug\net8.0\EverestIntelligent.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Jesus Marquez\Desktop\Everest Intelligent\Everest-Intelligent-Test-(.Net Core)\EverestIntelligent\EverestIntelligent\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Jesus Marquez\Desktop\Everest Intelligent\Everest-Intelligent-Test-(.Net Core)\EverestIntelligent\EverestIntelligent\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Jesus Marquez\Desktop\Everest Intelligent\Everest-Intelligent-Test-(.Net Core)\EverestIntelligent\EverestIntelligent\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Jesus Marquez\Desktop\Everest Intelligent\Everest-Intelligent-Test-(.Net Core)\EverestIntelligent\EverestIntelligent\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll

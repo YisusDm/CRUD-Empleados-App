@@ -23,50 +23,6 @@ namespace EverestIntelligent.Controllers
             return View(empleados);
         }
 
-        //Metodo GET para mostrar Formulario de Filtro
-        public IActionResult Filtro()
-        {
-            // Inicializa el modelo Filtro si es necesario
-            var filtro = new Filtro();
-
-            return View(filtro);
-        }
-
-        // Método POST para mostrar el formulario con los filtros aplicados
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Filtro(Filtro filtro)
-        {
-            if (ModelState.IsValid)
-            {
-                TempData["FiltroAplicado"] = true;
-
-                // Guarda los valores del filtro en TempData
-                TempData["FechaInicial"] = filtro.FechaInicial.HasValue ? filtro.FechaInicial.Value.ToString("yyyy-MM-dd") : null;
-                TempData["FechaFinal"] = filtro.FechaFinal.HasValue ? filtro.FechaFinal.Value.ToString("yyyy-MM-dd") : null;
-
-                var empleados = await _empleadoRepository.ObtenerEmpleadosPorFechaAsync(filtro.FechaInicial, filtro.FechaFinal);
-                return View("Index", empleados);
-            }
-
-            // Si hay errores, regresa el modelo con los datos ingresados a la vista
-            return View(filtro);
-        }
-
-        public async Task<IActionResult> QuitarFiltro()
-        {
-            TempData["FiltroAplicado"] = false;
-            return RedirectToAction(nameof(Index));
-        }
-
-
-        // Método GET para mostrar la vista de creación de un nuevo empleado
-        [HttpGet]
-        public IActionResult Crear()
-        {
-            return View();
-        }
-
         // Método POST para crear un nuevo empleado
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -81,7 +37,7 @@ namespace EverestIntelligent.Controllers
             return View(empleado);
         }
 
-        // Método GET para mostrar la vista de edición de un empleado existente
+        // Método GET para obtenr un empleado existente y modificar
         [HttpGet]
         public async Task<IActionResult> Editar(int? id)
         {
@@ -111,6 +67,63 @@ namespace EverestIntelligent.Controllers
             }
 
             return View(empleado);
+        }
+
+        // Método POST para eliminar un empleado
+        [HttpPost, ActionName("Borrar")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> BorrarConfirmado(int id)
+        {
+            await _empleadoRepository.BorrarEmpleadoAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+        //-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//
+        //      Metodos Carga de Vistas       //
+
+        // Método para cargar la vista inicial
+        public async Task<IActionResult> QuitarFiltro()
+        {
+            TempData["FiltroAplicado"] = false;
+            return RedirectToAction(nameof(Index));
+        }
+
+        //Metodo GET para vista Formulario de Filtro
+        [HttpGet]
+        public IActionResult Filtro()
+        {
+            // Inicializa el modelo Filtro si es necesario
+            var filtro = new Filtro();
+
+            return View(filtro);
+        }
+
+        // Método POST para mostrar el formulario con los filtros aplicados
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Filtro(Filtro filtro)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["FiltroAplicado"] = true;
+
+                // Guarda los valores del filtro en TempData
+                TempData["FechaInicial"] = filtro.FechaInicial.HasValue ? filtro.FechaInicial.Value.ToString("yyyy-MM-dd") : null;
+                TempData["FechaFinal"] = filtro.FechaFinal.HasValue ? filtro.FechaFinal.Value.ToString("yyyy-MM-dd") : null;
+
+                var empleados = await _empleadoRepository.ObtenerEmpleadosPorFechaAsync(filtro.FechaInicial, filtro.FechaFinal);
+                return View("Index", empleados);
+            }
+
+            // Si hay errores, regresa el modelo con los datos ingresados a la vista
+            return View(filtro);
+        }
+
+        // Método GET para mostrar la vista de creación de un nuevo empleado
+        [HttpGet]
+        public IActionResult Crear()
+        {
+            return View();
         }
 
         // Método GET para mostrar la vista de detalles de un empleado
@@ -147,15 +160,6 @@ namespace EverestIntelligent.Controllers
             }
 
             return View(empleado);
-        }
-
-        // Método POST para eliminar un empleado
-        [HttpPost, ActionName("Borrar")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> BorrarConfirmado(int id)
-        {
-            await _empleadoRepository.BorrarEmpleadoAsync(id);
-            return RedirectToAction(nameof(Index));
         }
 
     }

@@ -106,4 +106,16 @@
             });
         }); 
     </script>
-}                                      
+}
+
+<script type="text/javascript">
+    window.onload = function () {
+        // Verifica si ya existe una ventana abierta para evitar múltiples aperturas
+        if (!sessionStorage.getItem('swaggerOpened')) {
+            // Abre la nueva ventana para Swagger UI
+            window.open("http://localhost:5125/swagger/index.html", "_blank");
+            // Guarda en sessionStorage para evitar que la ventana se abra en cada recarga
+            sessionStorage.setItem('swaggerOpened', true);
+        }
+    };
+</script>

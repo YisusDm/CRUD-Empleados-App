@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EverestIntelligent")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+61fc1eff5e2d56d7198280850a17c74cc2ade6fd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d429edd051fe45d716098d9d1a619dfeecd09784")]
 [assembly: System.Reflection.AssemblyProductAttribute("EverestIntelligent")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EverestIntelligent")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
