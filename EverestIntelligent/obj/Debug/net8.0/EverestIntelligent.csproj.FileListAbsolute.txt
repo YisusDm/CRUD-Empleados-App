@@ -250,3 +250,4 @@ C:\Users\Jesus Marquez\Desktop\Everest Intelligent\Everest-Intelligent-Test-(.Ne
 C:\Users\Jesus Marquez\Desktop\Everest Intelligent\Everest-Intelligent-Test-(.Net Core)\EverestIntelligent\EverestIntelligent\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\Jesus Marquez\Desktop\Everest Intelligent\Everest-Intelligent-Test-(.Net Core)\EverestIntelligent\EverestIntelligent\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Jesus Marquez\Desktop\Everest Intelligent\Everest-Intelligent-Test-(.Net Core)\EverestIntelligent\EverestIntelligent\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\Jesus Marquez\Desktop\Everest Intelligent\Everest-Intelligent-Test-(.Net Core)\EverestIntelligent\EverestIntelligent\obj\Debug\net8.0\EverestIntelligent.sourcelink.json
