@@ -23,7 +23,7 @@ body {
 
 /* Controlar el tamaño de la letra en las celdas de la tabla */
 .table th, .table td {
-    font-size: 0.875rem !important; /* Fuerza el tamaño de la fuente */
+    font-size: 1.2rem !important; /* Fuerza el tamaño de la fuente */
 }
 
 /* Ajustar el padding para reducir el espacio entre las filas */

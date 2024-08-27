@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<EverestIntelligent.Models.Empleado>
 @{
     ViewData["Title"] = "Lista de Empleados";
+    var filtroAplicado = TempData["FiltroAplicado"] as bool? ?? false;
 }
 
 <h1 class="text-center">Lista Empleados</h1>
@@ -12,8 +13,8 @@
     </div> *@
     <div class="row justify-content-around">
         <div class="col-sm-6 col-md-5 col-lg-6">
-            <a asp-action="" asp-controller="Inicio" class="btn btn-secondary d-block mx-auto btn-lg">
-                <i class="bi bi-funnel"></i> Filtrar Datos
+            <a class="btn @(filtroAplicado ? "btn-warning" : "btn-secondary") d-block mx-auto btn-lg" asp-action="Filtro">
+                <i class="bi bi-funnel-fill"></i> Filtrar Datos
             </a>
         </div>
         <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">
@@ -76,6 +77,8 @@
 </div>
 
 @section Scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function () {
             //Llamar a datatable

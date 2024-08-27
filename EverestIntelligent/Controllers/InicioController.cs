@@ -1,6 +1,7 @@
 ﻿using EverestIntelligent.Datos;
 using EverestIntelligent.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Elfie.Serialization;
 
 namespace EverestIntelligent.Controllers
 {
@@ -21,6 +22,43 @@ namespace EverestIntelligent.Controllers
             var empleados = await _empleadoRepository.ObtenerTodosEmpleadosAsync();
             return View(empleados);
         }
+
+        //Metodo GET para mostrar Formulario de Filtro
+        public IActionResult Filtro()
+        {
+            // Inicializa el modelo Filtro si es necesario
+            var filtro = new Filtro();
+
+            return View(filtro);
+        }
+
+        // Método POST para mostrar el formulario con los filtros aplicados
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Filtro(Filtro filtro)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["FiltroAplicado"] = true;
+
+                // Guarda los valores del filtro en TempData
+                TempData["FechaInicial"] = filtro.FechaInicial.HasValue ? filtro.FechaInicial.Value.ToString("yyyy-MM-dd") : null;
+                TempData["FechaFinal"] = filtro.FechaFinal.HasValue ? filtro.FechaFinal.Value.ToString("yyyy-MM-dd") : null;
+
+                var empleados = await _empleadoRepository.ObtenerEmpleadosPorFechaAsync(filtro.FechaInicial, filtro.FechaFinal);
+                return View("Index", empleados);
+            }
+
+            // Si hay errores, regresa el modelo con los datos ingresados a la vista
+            return View(filtro);
+        }
+
+        public async Task<IActionResult> QuitarFiltro()
+        {
+            TempData["FiltroAplicado"] = false;
+            return RedirectToAction(nameof(Index));
+        }
+
 
         // Método GET para mostrar la vista de creación de un nuevo empleado
         [HttpGet]
@@ -119,5 +157,7 @@ namespace EverestIntelligent.Controllers
             await _empleadoRepository.BorrarEmpleadoAsync(id);
             return RedirectToAction(nameof(Index));
         }
+
     }
+
 }

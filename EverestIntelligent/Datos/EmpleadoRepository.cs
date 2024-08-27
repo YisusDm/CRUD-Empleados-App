@@ -49,6 +49,44 @@ namespace EverestIntelligent.Datos
             return empleados;
         }
 
+        // Obtener empleados por fecha
+        public async Task<IEnumerable<Empleado>> ObtenerEmpleadosPorFechaAsync(DateTime? fechaInicial, DateTime? fechaFinal)
+        {
+            var empleados = new List<Empleado>();
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = new SqlCommand("SP_GetEmpleadosContratado", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                // Agrega los parámetros con valores nulos si las fechas son nulas
+                command.Parameters.AddWithValue("@FechaInicial", fechaInicial.HasValue ? (object)fechaInicial.Value : DBNull.Value);
+                command.Parameters.AddWithValue("@FechaFinal", fechaFinal.HasValue ? (object)fechaFinal.Value : DBNull.Value);
+
+                connection.Open();
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        empleados.Add(new Empleado
+                        {
+                            IdEmpleado = reader.GetInt32(0),
+                            Nombre = reader.GetString(1),
+                            Apellido = reader.GetString(2),
+                            Email = reader.GetString(3),
+                            Celular = reader.GetString(4),
+                            FechaCreacion = reader.IsDBNull(5) ? (DateTime?)null : reader.GetDateTime(5),
+                            FechaModificacion = reader.IsDBNull(6) ? (DateTime?)null : reader.GetDateTime(6)
+                        });
+                    }
+                }
+            }
+
+            return empleados;
+        }
+
         // Obtener empleado por ID
         public async Task<Empleado> ObtenerEmpleadoPorIdAsync(int id)
         {
